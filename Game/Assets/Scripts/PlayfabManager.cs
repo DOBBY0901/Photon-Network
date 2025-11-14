@@ -33,5 +33,32 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
 
         //특정 로비를 생성하여 진입하는 함수
         PhotonNetwork.JoinLobby();
+
     }
+    public void Login()
+    {
+        var request = new LoginWithEmailAddressRequest
+        {
+            Email = addressInputField.text,
+            Password = passwordInputField.text,
+        };
+
+        PlayFabClientAPI.LoginWithEmailAddress
+            (
+                request,
+                Success,
+                Failure
+            );
+    }
+   
+    public void Failure(PlayFabError playFabError)
+    {
+        PanelManager.instance.Load(Panel.Error, playFabError.GenerateErrorReport());
+    }
+
+    public void Subscribe()
+    {
+
+    }
+
 }
