@@ -58,7 +58,7 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
 
     public void Subscribe()
     {
-
+        PanelManager.instance.Load(Panel.Subscribe, null);
     }
 
 }
