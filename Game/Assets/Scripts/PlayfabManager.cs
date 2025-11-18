@@ -20,21 +20,26 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         StartCoroutine(Connect());
     }
 
+    public override void OnJoinedLobby()
+    {
+        PhotonNetwork.LoadLevel("Lobby");
+    }
+
     private IEnumerator Connect()
     {
-        //Name Server에서 Master Server로 넘어가는 중
+        // Name Server에서 Master Server로 넘어가는 중...
         PhotonNetwork.ConnectUsingSettings();
 
-        //서버 연결이 완료되거나 시간 초과될때까지 대기.
+        // 서버 연결이 완료되거나 시간 초과될 때까지 대기
         while (PhotonNetwork.IsConnectedAndReady == false)
         {
             yield return null;
         }
 
-        //특정 로비를 생성하여 진입하는 함수
+        // 특정 로비를 생성하여 진입하는 함수
         PhotonNetwork.JoinLobby();
-
     }
+
     public void Login()
     {
         var request = new LoginWithEmailAddressRequest
@@ -44,21 +49,21 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         };
 
         PlayFabClientAPI.LoginWithEmailAddress
-            (
-                request,
-                Success,
-                Failure
-            );
-    }
-   
-    public void Failure(PlayFabError playFabError)
-    {
-        PanelManager.instance.Load(Panel.Error, playFabError.GenerateErrorReport());
+        (
+            request,
+            Success,
+            Failure
+        );
     }
 
     public void Subscribe()
     {
         PanelManager.instance.Load(Panel.Subscribe, null);
+    }
+
+    public void Failure(PlayFabError playFabError)
+    {
+        PanelManager.instance.Load(Panel.Error, playFabError.GenerateErrorReport());
     }
 
 }
