@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using WebSocketSharp;
 
 public enum Panel
 {
@@ -37,6 +38,7 @@ public class PanelManager : MonoBehaviour
         {
             clone = (GameObject)Instantiate(Resources.Load(panel.ToString()));
 
+           
             clone.name = clone.name.Replace("(Clone)", "");
 
             dictionary.Add(panel, clone);
@@ -48,6 +50,13 @@ public class PanelManager : MonoBehaviour
             clone.SetActive(true);
         }
 
+        if (clone.GetComponent<ErrorPanel>() == true)
+        {
+            clone.GetComponent<ErrorPanel>().SetText(message);
+        }
+
     }
+
+  
 }
 

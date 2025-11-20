@@ -63,7 +63,21 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
 
     public void Failure(PlayFabError playFabError)
     {
-        PanelManager.instance.Load(Panel.Error, playFabError.GenerateErrorReport());
+        var report = playFabError.GenerateErrorReport();
+        var lines = report.Split("\n");
+
+        switch(lines.Length)
+        {
+            case 4:
+                PanelManager.instance.Load(Panel.Error, $"{lines[2]} \n\n  {lines[3]}");
+                break;
+                
+            case 5: PanelManager.instance.Load(Panel.Error, $"{lines[2]} \n\n  {lines[3]} \n\n {lines[4]}");
+                break;
+
+        }
+       
+   
     }
 
 }

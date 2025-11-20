@@ -10,4 +10,5 @@ public class ErrorPanel : MonoBehaviour
     {
         errortext.text = message;
     }
+
 }
