@@ -16,6 +16,8 @@ public class RoomView : MonoBehaviour
 
     public void UpdateRoomInformation(RoomInfo roomInfo)
     {
+        titletext = roomInfo.Name;
+
         roomtext.text = roomInfo.Name + " ( " + roomInfo.PlayerCount + " / " + roomInfo.MaxPlayers + " ) ";
        
     }
