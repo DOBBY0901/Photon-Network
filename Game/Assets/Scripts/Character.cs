@@ -9,8 +9,10 @@ public class Character : MonoBehaviourPun
     [SerializeField] Vector3 direction;
     [SerializeField] float speed;
 
+    [SerializeField] Rotation rotation;
     private void Awake()
     {
+        rotation.GetComponent<Rotation>();
         characterController = GetComponent<CharacterController>();
     }
 
@@ -25,6 +27,9 @@ public class Character : MonoBehaviourPun
         {
             Control();
             Move();
+
+            rotation.RotateY();
+            
         }
         
     }
@@ -50,6 +55,7 @@ public class Character : MonoBehaviourPun
         direction.x = Input.GetAxis("Horizontal");
         direction.z = Input.GetAxis("Vertical");
 
+        //direction방향을 단위 벡터로 설정
         direction.Normalize();
         
 
@@ -57,7 +63,7 @@ public class Character : MonoBehaviourPun
 
     public void Move()
     {
-        characterController.Move(direction * speed * Time.deltaTime);
+        characterController.Move(characterController.transform.TransformDirection(direction) * speed * Time.deltaTime);
     }
 }
 
