@@ -4,6 +4,7 @@ using Photon.Pun;
 public class Head : MonoBehaviourPunCallbacks
 {
     [SerializeField] Rotation rotation;
+
     [SerializeField] float minimumAngle = -65;
     [SerializeField] float maximumAngle = 65;
 

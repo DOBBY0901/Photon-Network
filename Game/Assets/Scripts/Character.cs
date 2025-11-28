@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Assertions.Must;
 
 public class Character : MonoBehaviourPun
 {
@@ -10,14 +11,18 @@ public class Character : MonoBehaviourPun
     [SerializeField] float speed;
 
     [SerializeField] Rotation rotation;
+    [SerializeField] Mouse mouse;
+
     private void Awake()
     {
+        mouse = GetComponent<Mouse>();
         rotation.GetComponent<Rotation>();
         characterController = GetComponent<CharacterController>();
     }
 
     void Start()
     {
+        mouse.SetMouse(true );
         DisableCamera();
     }
 
