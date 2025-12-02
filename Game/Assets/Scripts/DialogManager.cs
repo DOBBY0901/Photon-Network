@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.Assertions.Must;
 
 public class DialogManager : MonoBehaviourPunCallbacks
 {
@@ -19,7 +20,7 @@ public class DialogManager : MonoBehaviourPunCallbacks
                 return;
             }
 
-            string talk = inputField.text;
+            string talk = PhotonNetwork.LocalPlayer.NickName + " : " + inputField.text;
             
             //RPCTaeget.All 현재 룸의 모든 클라이언트에게 Talk함수 실행 명령
 
