@@ -14,9 +14,11 @@ public class MasterManager : MonoBehaviourPunCallbacks
         {
             while (true)
             {
-                PhotonNetwork.InstantiateRoomObject("Ball", Vector3.zero, Quaternion.identity);
-               
-            }
+                if(PhotonNetwork.CurrentRoom != null)
+                {
+                    PhotonNetwork.InstantiateRoomObject("Ball", Vector3.zero, Quaternion.identity);
+                }
+        }
         }
     }
 
