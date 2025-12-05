@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "input Actions",
+    "maps": [
+        {
+            "name": "esc action map",
+            "id": "1777d086-6111-4416-8144-246513fe55b0",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "c6be4dea-be89-439d-a0af-aa651fcea821",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e4c1eed3-94e2-4ea5-ae99-7437a3df2355",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37311948}
-  - component: {fileID: 37311947}
+  - component: {fileID: 37311949}
   m_Layer: 0
   m_Name: Mouse Manager
   m_TagString: Untagged
@@ -218,18 +218,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &37311947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37311946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a31d34e846ed042a6a83c8e12c2b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &37311948
 Transform:
   m_ObjectHideFlags: 0
@@ -245,6 +233,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37311949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37311946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d82ecf12e97a64c8f15a5a299ed7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &89512951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d914176331c1fe4ba8e2ac6ead5eff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionRef: {fileID: -864611993266708942, guid: e90979807a404d44c8a6378d8f6d6ea4, type: 3}
 --- !u!4 &1492808723
 Transform:
   m_ObjectHideFlags: 0

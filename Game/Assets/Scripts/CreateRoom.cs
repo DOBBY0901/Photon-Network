@@ -8,16 +8,15 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] InputField titleInputField;
     
-    [SerializeField] Button[] buttons;
+    [SerializeField] Toggle [ ] toggles;      
     
     [SerializeField] int personal = 0;
+
     private void Start()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
-
-        buttons[0].onClick.Invoke();
+        Select(true);
     }
+
     public void OnCreateRoom()
     { 
         RoomOptions roomOptions = new RoomOptions(); 
@@ -27,11 +26,30 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
 
         PhotonNetwork.CreateRoom(titleInputField.text, roomOptions);
+
+        gameObject.SetActive(false);
     }
 
-     public void Select(int count)
+     public void Select(bool power)
     {
-        personal = count;
+       
+        if (power == false)
+        {
+            return;
+        }
+
+        if (toggles[0].isOn)
+        {
+            personal = 2;
+        }
+        else if (toggles[1].isOn)
+        {
+            personal = 3;
+        }
+        else if (toggles[2].isOn)
+        {
+            personal = 4;
+        }
     }
 
     public void Cancle()

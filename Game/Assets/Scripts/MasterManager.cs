@@ -8,23 +8,25 @@ public class MasterManager : MonoBehaviourPunCallbacks
 {
     private WaitForSeconds waitForSeconds = new WaitForSeconds(5);
 
-   public void Start()
+    public IEnumerator Start()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             while (true)
             {
-                if(PhotonNetwork.CurrentRoom != null)
+                if (PhotonNetwork.CurrentRoom != null)
                 {
                     PhotonNetwork.InstantiateRoomObject("Ball", Vector3.zero, Quaternion.identity);
                 }
-        }
+
+                yield return waitForSeconds;
+            }
         }
     }
 
-   IEnumerator SpawnRoutine()
+    IEnumerator SpawnRoutine()
     {
-        
+   
         yield return new WaitForSeconds(5);
     }
 

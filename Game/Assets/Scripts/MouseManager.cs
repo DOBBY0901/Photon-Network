@@ -34,10 +34,7 @@ public class MouseManager : MonoBehaviourPunCallbacks
     }
 
     private void OnDestroy()
-    {
-        if (photonView.IsMine)
-        {
+    { 
             SetMouse(true);
-        }
     }
 }
